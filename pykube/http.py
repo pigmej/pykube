@@ -53,6 +53,8 @@ class HTTPClient(object):
             base = kwargs.pop("base", "/api")
         elif version.startswith("extensions/"):
             base = kwargs.pop("base", "/apis")
+        elif version.startswith('batch/'):
+            base = kwargs.pop('base', '/apis')
         else:
             if "base" not in kwargs:
                 raise TypeError("unknown API version; base kwarg must be specified.")
